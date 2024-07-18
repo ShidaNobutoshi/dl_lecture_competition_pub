@@ -1,0 +1,157 @@
+data
+src/__pycache__
+src/models/__pycache__
+src__baseline
+src__SeqRecurrent_Crop480x640_GradClip
+src__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip
+src__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip
+checkpoints__Obsolete
+outputs
+outputs__Obsolete
+LOG
+LOG_Obsolete
+WORK
+提出版_バグあり
+提出版_H+V-Flip_epoch=8
+提出版_MyH+V-Flip_GradClip_epoch=19
+提出版_baseline_epochs=20
+提出版_baseline_epochs=17
+提出版_SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_epochs=20
+
+submission.npy
+main - コピー (2).py
+main - コピー (3).py
+main - コピー (4).py
+main - コピー.py
+main__datasets__MyH+V-Flip_GradClip_20240715-3.py
+main__datasets_H+V-Flip_GradClip_20240715-1.py
+main__datasets_H+V-Flip_GradClip_20240715-1__comment_out_AMP.py
+main__datasets_MyH-Flip_GradClip_20240715-2.log
+main__datasets_MyH-Flip_GradClip_20240715-2.py
+main__ORG.py
+main__SeqRecurrent_Crop480x640_GradClip_20240716-2.py
+main__SeqRecurrent_Crop480x640_MyH+V-Flip-_GradClip_20240717-1.py
+main__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2.py
+main__SeqRecurrent_GradClip_20240716-1.py
+
+test - コピー (2).py
+test - コピー (3).py
+test - コピー.py
+test__baseline - コピー.py
+test__baseline.py
+test__dataset_H+V-Flip_Bug_No_check_whether_if_flipped_or_not.py
+test__SeqRecurrent_Crop480x640_GradClip_20240716-2 - コピー (2).py
+test__SeqRecurrent_Crop480x640_GradClip_20240716-2 - コピー.py
+test__SeqRecurrent_Crop480x640_GradClip_20240716-2.py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1 - コピー (2).py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1 - コピー.py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1.py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2.py
+dl_lecture_competition_pub.7z
+
+src/datasets - コピー (2).py
+src/datasets - コピー (3).py
+src/datasets - コピー.py
+src/datasets__20240707-1.py
+src/datasets__20240714-1.py
+src/datasets__MyH+V-Flip_GradClip_20240715-3.py
+src/datasets__MyH-Flip_GradClip_20240715-2.py
+src/datasets__ORG.py
+src/datasets__SeqRecurrent_Crop480x640_GradClip_20240716-2.py
+src/datasets__SeqRecurrent_Crop480x640_GradClip_20240716-2__OLD.py
+src/datasets__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1.py
+src/datasets__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2.py
+src/datasets__SeqRecurrent_GradClip_20240716-1.py
+src/models/evflownet - コピー.py
+src/models/evflownet__ORG.py
+src/models/evflownet__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2.py
+
+configs/base__batch_size=16.yaml
+configs/base__batch_size=24.yaml
+configs/base__batch_size=32.yaml
+configs/base__batch_size=8.yaml
+configs/base__data_loader_train_batch_size=16__train_epochs=20.yaml
+configs/base__ORG.yaml
+
+checkpoints/model_20240715183202.pth
+checkpoints/model_20240715192352.pth
+checkpoints/model_20240715201532.pth
+checkpoints/model_20240715210933.pth
+checkpoints/model_20240715220211.pth
+checkpoints/model_20240715225329.pth
+checkpoints/model_20240715234635.pth
+checkpoints/model_20240716000446.pth
+checkpoints/model_20240716004226.pth
+checkpoints/model_20240716005307.pth
+checkpoints/model_20240716014122.pth
+checkpoints/model_20240716014533.pth
+checkpoints/model_20240716022936.pth
+checkpoints/model_20240716031445.pth
+checkpoints/model_20240716031749.pth
+checkpoints/model_20240716040609.pth
+checkpoints/model_20240716045450.pth
+checkpoints/model_20240716054258.pth
+checkpoints/model_20240716054856.pth
+checkpoints/model_20240716063142.pth
+checkpoints/model_20240716071826.pth
+checkpoints/model_20240716080418.pth
+checkpoints/model_20240716085049.pth
+checkpoints/model_20240716090740.pth
+checkpoints/model_20240716093651.pth
+checkpoints/model_20240716102308.pth
+checkpoints/model_20240716110857.pth
+checkpoints/model_20240716115657.pth
+checkpoints/model_20240716124253.pth
+checkpoints/model_20240716132941.pth
+checkpoints/model_20240716141611.pth
+checkpoints/model_20240716150219.pth
+checkpoints/model_20240716224339.pth
+checkpoints/model_20240716235250.pth
+checkpoints/model_20240717015317.pth
+checkpoints/model_20240717024552.pth
+checkpoints/model_20240717033820.pth
+checkpoints/model_20240717043053.pth
+checkpoints/model_20240717052328.pth
+checkpoints/model_20240717061559.pth
+checkpoints/model_20240717070859.pth
+checkpoints/model_20240717080437.pth
+checkpoints/model_20240717090552.pth
+checkpoints/model_20240717102746.pth
+checkpoints/model_20240717104850.pth
+checkpoints/model_20240717120817.pth
+checkpoints/model_20240717121824.pth
+checkpoints/model_20240717132312.pth
+checkpoints/model_20240717143757.pth
+checkpoints/model_20240717144252.pth
+checkpoints/model_20240717155217.pth
+checkpoints/model_20240717170340.pth
+checkpoints/model_20240717174603.pth
+checkpoints/model_20240717181432.pth
+checkpoints/model_20240717192630.pth
+checkpoints/model_20240717204027.pth
+checkpoints/model_20240717205851.pth
+checkpoints/model_20240717211237.pth
+checkpoints/model_20240717214458.pth
+checkpoints/model_20240717215844.pth
+checkpoints/model_20240717223132.pth
+checkpoints/model_20240717231757.pth
+checkpoints/model_20240717234004.pth
+checkpoints/model_20240718000724.pth
+checkpoints/model_20240718004350.pth
+checkpoints/model_20240718005313.pth
+checkpoints/model_20240718013915.pth
+checkpoints/model_20240718020752.pth
+checkpoints/model_20240718022510.pth
+checkpoints/model_20240718031051.pth
+checkpoints/model_20240718035619.pth
+checkpoints/model_20240718043823.pth
+checkpoints/model_20240718044157.pth
+checkpoints/model_20240718052123.pth
+checkpoints/model_20240718052929.pth
+checkpoints/model_20240718061605.pth
+checkpoints/model_20240718070309.pth
+checkpoints/model_20240718075029.pth
+checkpoints/model_20240718083848.pth
+checkpoints/model_20240718092602.pth
+checkpoints/model_20240718101245.pth
+checkpoints/model_20240718105853.pth

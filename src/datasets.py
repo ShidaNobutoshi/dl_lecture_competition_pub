@@ -15,12 +15,28 @@ import torch
 import torch.utils.data
 from torchvision.transforms import RandomCrop
 from torchvision import transforms as tf
+# import torchvision.transforms.functional as tf
 from torch.utils.data import Dataset
 
 
 from src.utils import RepresentationType, VoxelGrid, flow_16bit_to_float
 
 VISU_INDEX = 1
+
+
+import random
+
+def MyRandomHorizontalFlip(tensor:torch.tensor, p:float=0.5) :
+    if (random.random() < p) :
+        return tf.functional.hflip(tensor), True
+    else :
+        return tensor, False
+
+def MyRandomVerticalFlip(tensor:torch.tensor, p:float=0.5) :
+    if (random.random() < p) :
+        return tf.functional.vflip(tensor), True
+    else :
+        return tensor, False
 
 
 class EventSlicer:
@@ -352,11 +368,34 @@ class Sequence(Dataset):
         if self.load_gt:
             output['flow_gt'
                 ] = [torch.tensor(x) for x in self.load_flow(self.flow_png[index])]
-
             output['flow_gt'
                 ][0] = torch.moveaxis(output['flow_gt'][0], -1, 0)
+
+            output['flow_gt0'] = list()
+            output['flow_gt1'] = list()
+            output['flow_gt2'] = list()
+#            output['flow_gt3'] = list()
+
+            output['flow_gt0'].append(tf.functional.resize(output['flow_gt'][0], [60, 80]))    # flow0 torch.Size([2, 60, 80])
+            output['flow_gt1'].append(tf.functional.resize(output['flow_gt'][0], [120, 160]))  # flow1 torch.Size([2, 120, 160])
+            output['flow_gt2'].append(tf.functional.resize(output['flow_gt'][0], [240, 320]))  # flow2 torch.Size([2, 240, 320])
+#            output['flow_gt3'].append(tf.functional.resize(output['flow_gt'][0], [480, 640]))  # flow3 torch.Size([2, 480, 640])
+
+            # torch.Size([2, 480, 640])
+#            shape = output['flow_gt'][0].shape
+#            print(f"flow_gt shape {shape}")
+#            print(f"flow_gt0 shape {output['flow_gt0'][0].shape}")
+#            print(f"flow_gt1 shape {output['flow_gt1'][0].shape}")
+#            print(f"flow_gt2 shape {output['flow_gt2'][0].shape}")
+#            print(f"flow_gt3 shape {output['flow_gt3'][0].shape}")
+
             output['flow_gt'
                 ][1] = torch.unsqueeze(output['flow_gt'][1], 0)
+            output['flow_gt0'].append(tf.functional.resize(output['flow_gt'][1], [60, 80]))    # flow0 torch.Size([2, 60, 80])
+            output['flow_gt1'].append(tf.functional.resize(output['flow_gt'][1], [120, 160]))  # flow1 torch.Size([2, 120, 160])
+            output['flow_gt2'].append(tf.functional.resize(output['flow_gt'][1], [240, 320]))  # flow2 torch.Size([2, 240, 320])
+#            output['flow_gt3'].append(tf.functional.resize(output['flow_gt'][1], [480, 640]))  # flow3 torch.Size([2, 480, 640])
+
         return output
 
     def __getitem__(self, idx):
@@ -446,6 +485,7 @@ class SequenceRecurrent(Sequence):
         super(SequenceRecurrent, self).__init__(seq_path, representation_type, mode, delta_t_ms, transforms=transforms,
                                                 name_idx=name_idx, visualize=visualize, load_gt=load_gt)
         self.crop_size = self.transforms['randomcrop'] if 'randomcrop' in self.transforms else None
+        self.h_v_flip = self.transforms['randomflip'] if 'randomflip' in self.transforms else None
         self.sequence_length = sequence_length
         self.valid_indices = self.get_continuous_sequences()
 
@@ -467,6 +507,14 @@ class SequenceRecurrent(Sequence):
     def __len__(self):
         return len(self.valid_indices)
 
+    def get_data_sample(self, index, crop_window=None, flip=None) -> Dict[str, any]:
+        sample = self.get_data(index)
+        if crop_window is not None :
+            sample['crop_window'] = crop_window
+        if flip is not None :
+            sample['flipped'] = flip
+        return sample
+
     def __getitem__(self, idx):
         assert idx >= 0
         assert idx < len(self)
@@ -479,7 +527,9 @@ class SequenceRecurrent(Sequence):
 
         ts_cur = self.timestamps_flow[j]
         # Add first sample
-        sample = self.get_data_sample(j)
+##        sample = self.get_data_sample(j)
+#        sample = self.get_data_sample(j, crop_window=[480, 640], flip=[True, True])
+        sample = self.get_data_sample(j, crop_window=self.crop_size, flip=self.h_v_flip)
         sequence.append(sample)
 
         # Data augmentation according to first sample
@@ -507,22 +557,56 @@ class SequenceRecurrent(Sequence):
         else:
             sequence[0]['new_sequence'] = 0
 
-        # random crop
+        # random crop + random h-flip + v-flip
+        hflipped = False
+        vflipped = False
         if self.crop_size is not None:
+
+            # ランダムにクロップし、乱数で決定されたクロップ位置を取得
             i, j, h, w = RandomCrop.get_params(
-                sample["event_volume_old"], output_size=self.crop_size)
-            keys_to_crop = ["event_volume_old", "event_volume_new",
-                            "flow_gt_event_volume_old", "flow_gt_event_volume_new", 
+##                sample["event_volume_old"], output_size=self.crop_size)
+                sample["event_volume"], output_size=self.crop_size)
+
+            if self.h_v_flip[0] :
+                # ランダムに水平Flipし、乱数で決定されたFlipの有無を取得
+                sample["event_volume"], hflipped = MyRandomHorizontalFlip(sample["event_volume"], p=0.5)
+
+            if self.h_v_flip[1] :
+                # ランダムに垂直Flipし、乱数で決定されたFlipの有無を取得
+                sample["event_volume"], vflipped = MyRandomVerticalFlip(sample["event_volume"], p=0.5)
+
+            keys_to_crop = ["event_volume", "event_volume_new",
+                            "flow_gt_event_volume", "flow_gt_event_volume_new", 
                             "flow_gt_next",]
 
             for sample in sequence:
                 for key, value in sample.items():
                     if key in keys_to_crop:
-                        if isinstance(value, torch.Tensor):
-                            sample[key] = tf.functional.crop(value, i, j, h, w)
-                        elif isinstance(value, list) or isinstance(value, tuple):
-                            sample[key] = [tf.functional.crop(
-                                v, i, j, h, w) for v in value]
+                        if hflipped and vflipped :
+                            if isinstance(value, torch.Tensor):
+                                sample[key] = tf.functional.vflip(tf.functional.hflip(tf.functional.crop(value, i, j, h, w)))
+                            elif isinstance(value, list) or isinstance(value, tuple):
+                                sample[key] = [tf.functional.vflip(tf.functional.hflip(tf.functional.crop(value, i, j, h, w))) for v in value]
+
+                        if hflipped and not vflipped :
+                            if isinstance(value, torch.Tensor):
+                                sample[key] = tf.functional.hflip(tf.functional.crop(value, i, j, h, w))
+                            elif isinstance(value, list) or isinstance(value, tuple):
+                                sample[key] = [tf.functional.hflip(tf.functional.crop(value, i, j, h, w)) for v in value]
+
+                        if not hflipped and vflipped :
+                            if isinstance(value, torch.Tensor):
+                                sample[key] = tf.functional.vflip(tf.functional.crop(value, i, j, h, w))
+                            elif isinstance(value, list) or isinstance(value, tuple):
+                                sample[key] = [tf.functional.vflip(tf.functional.crop(value, i, j, h, w)) for v in value]
+
+                        else :
+                            if isinstance(value, torch.Tensor):
+                                sample[key] = tf.functional.crop(value, i, j, h, w)
+
+                            elif isinstance(value, list) or isinstance(value, tuple):
+                                sample[key] = [tf.functional.crop(v, i, j, h, w) for v in value]
+
         return sequence
 
 
@@ -554,12 +638,24 @@ class DatasetProvider:
 
         seqs = available_seqs
 
-        train_sequences: list[Sequence] = []
+#        train_sequences: list[Sequence] = []
+        train_sequences: list[SequenceRecurrent] = []
+
+        keys_to_transforms = ['randomcrop', 'randomhorizontalflip', 'randomverticalflip', ]
+        seq_transforms = dict()
+        seq_transforms['randomcrop'] = [480, 640]    # height=480, width=640
+        seq_transforms['randomflip'] = [True, True]  # Horizontal=True, Vertical=True
+#        seq_transforms['randomflip'] = [False, False]  # Horizontal=True, Vertical=True
+
         for seq in seqs:
             extra_arg = dict()
-            train_sequences.append(Sequence(Path(train_path) / seq,
+##            train_sequences.append(Sequence(Path(train_path) / seq,
+##                                   representation_type=representation_type, mode="train",
+##                                   load_gt=True, **extra_arg))
+            train_sequences.append(SequenceRecurrent(Path(train_path) / seq,
                                    representation_type=representation_type, mode="train",
-                                   load_gt=True, **extra_arg))
+                                   load_gt=True, transforms=seq_transforms, **extra_arg))
+
             self.train_dataset: torch.utils.data.ConcatDataset[Sequence] = torch.utils.data.ConcatDataset(train_sequences)
 
     def get_test_dataset(self):
