@@ -194,30 +194,30 @@ def main(args: DictConfig):
 #    model_path = f"checkpoints/model_20240717080437.pth"       # 2024/07/16, Omnicampus test EPE=25.1431, SeqRecurr, Crop480x640, GradClip, epochs=8
 #    model_path = f"checkpoints/model_20240717090552.pth"       # 2024/07/16, Omnicampus test EPE=3.90742, SeqRecurr, Crop480x640, GradClip, epochs=9
 #    model_path = f"checkpoints/model_20240717102746.pth"       # 2024/07/16, Omnicampus test EPE=4.05273, SeqRecurr, Crop480x640, GradClip, epochs=10
-#    model_path = f"checkpoints/model_20240717121824.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=11
-#    model_path = f"checkpoints/model_20240717144252.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=12
-#    model_path = f"checkpoints/model_20240717174603.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=13
-#    model_path = f"checkpoints/model_20240717211237.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=14
-#    model_path = f"checkpoints/model_20240718004350.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=15
-#    model_path = f"checkpoints/model_YYYYMMDDHHMMSS.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=16
-#    model_path = f"checkpoints/model_YYYYMMDDHHMMSS.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=17
+#    model_path = f"checkpoints/model_20240717121824.pth"       # 2024/07/16, Omnicampus test EPE=4.11932, SeqRecurr, Crop480x640, GradClip, epochs=11
+#    model_path = f"checkpoints/model_20240717144252.pth"       # 2024/07/16, Omnicampus test EPE=3.42704, SeqRecurr, Crop480x640, GradClip, epochs=12
+#    model_path = f"checkpoints/model_20240717174603.pth"       # 2024/07/16, Omnicampus test EPE=2.40108, SeqRecurr, Crop480x640, GradClip, epochs=13
+#    model_path = f"checkpoints/model_20240717211237.pth"       # 2024/07/16, Omnicampus test EPE=2.38351, SeqRecurr, Crop480x640, GradClip, epochs=14
+#    model_path = f"checkpoints/model_20240718004350.pth"       # 2024/07/16, Omnicampus test EPE=2.53106, SeqRecurr, Crop480x640, GradClip, epochs=15
+#    model_path = f"checkpoints/model_20240718043823.pth"       # 2024/07/16, Omnicampus test EPE=2.43061, SeqRecurr, Crop480x640, GradClip, epochs=16
+#    model_path = f"checkpoints/model_20240718090829.pth"       # 2024/07/16, Omnicampus test EPE=2.53608, SeqRecurr, Crop480x640, GradClip, epochs=17
 #    model_path = f"checkpoints/model_YYYYMMDDHHMMSS.pth"       # 2024/07/16, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, GradClip, epochs=X
 
 # SequenceRecurrent, Crop480x640, H+V-Flip, GradClip
 #    model_path = f"checkpoints/model_20240717104850.pth"       # 2024/07/17, Omnicampus test EPE=9.66682, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=1
-#    model_path = f"checkpoints/model_20240717120817.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=2
-#    model_path = f"checkpoints/model_20240717132312.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=3
-#    model_path = f"checkpoints/model_20240717143757.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=4
-#    model_path = f"checkpoints/model_20240717155217.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=5
-#    model_path = f"checkpoints/model_20240717170340.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=6
-#    model_path = f"checkpoints/model_20240717181432.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=7
-#    model_path = f"checkpoints/model_20240717192630.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=8
-#    model_path = f"checkpoints/model_20240717204027.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=9
-#    model_path = f"checkpoints/model_20240717215844.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=10
-#    model_path = f"checkpoints/model_20240717234004.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=11
-#    model_path = f"checkpoints/model_20240718020752.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=12
-#    model_path = f"checkpoints/model_20240718052123.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=13
-#    model_path = f"checkpoints/model_YYYYMMDDHHMMSS.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=14
+#    model_path = f"checkpoints/model_20240717120817.pth"       # 2024/07/17, Omnicampus test EPE=56.8469, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=2
+#    model_path = f"checkpoints/model_20240717132312.pth"       # 2024/07/17, Omnicampus test EPE=9.81483, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=3
+#    model_path = f"checkpoints/model_20240717143757.pth"       # 2024/07/17, Omnicampus test EPE=16.2931, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=4
+#    model_path = f"checkpoints/model_20240717155217.pth"       # 2024/07/17, Omnicampus test EPE=4.13064, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=5
+#    model_path = f"checkpoints/model_20240717170340.pth"       # 2024/07/17, Omnicampus test EPE=4.67617, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=6
+#    model_path = f"checkpoints/model_20240717181432.pth"       # 2024/07/17, Omnicampus test EPE=3.99518, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=7
+#    model_path = f"checkpoints/model_20240717192630.pth"       # 2024/07/17, Omnicampus test EPE=2.68012, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=8
+#    model_path = f"checkpoints/model_20240717204027.pth"       # 2024/07/17, Omnicampus test EPE=7.85379, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=9
+#    model_path = f"checkpoints/model_20240717215844.pth"       # 2024/07/17, Omnicampus test EPE=10.6593, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=10
+#    model_path = f"checkpoints/model_20240717234004.pth"       # 2024/07/17, Omnicampus test EPE=2.59421, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=11
+#    model_path = f"checkpoints/model_20240718020752.pth"       # 2024/07/17, Omnicampus test EPE=3.78752, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=12
+#    model_path = f"checkpoints/model_20240718052123.pth"       # 2024/07/17, Omnicampus test EPE=2.28978, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=13
+#    model_path = f"checkpoints/model_20240718085926.pth"       # 2024/07/17, Omnicampus test EPE=358.902, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=14
 #    model_path = f"checkpoints/model_YYYYMMDDHHMMSS.pth"       # 2024/07/17, Omnicampus test EPE=x.xxx, SeqRecurr, Crop480x640, H+V-Flip, GradClip, epochs=X
 
 # SequenceRecurrent, Crop480x640, H+V-Flip, MidLayer-Loss, GradClip

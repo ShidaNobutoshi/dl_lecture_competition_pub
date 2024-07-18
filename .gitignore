@@ -17,6 +17,7 @@ WORK
 提出版_baseline_epochs=20
 提出版_baseline_epochs=17
 提出版_SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_epochs=20
+提出版_test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_epochs=13
 
 submission.npy
 main - コピー (2).py
@@ -47,6 +48,14 @@ test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1 - コピー (2).py
 test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1 - コピー.py
 test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1.py
 test__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2.py
+test.py.bak
+test__SeqRecurrent_Crop480x640_GradClip_20240716-2 - コピー (3).py
+test__SeqRecurrent_Crop480x640_GradClip_20240716-2.py.bak
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1 - コピー (3).py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_GradClip_20240717-1.py.bak
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2 - コピー (2).py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2 - コピー.py
+test__SeqRecurrent_Crop480x640_MyH+V-Flip_MidLayer-GradClip_20240717-2.py.bak
 dl_lecture_competition_pub.7z
 
 src/datasets - コピー (2).py
@@ -146,7 +155,6 @@ checkpoints/model_20240718031051.pth
 checkpoints/model_20240718035619.pth
 checkpoints/model_20240718043823.pth
 checkpoints/model_20240718044157.pth
-checkpoints/model_20240718052123.pth
 checkpoints/model_20240718052929.pth
 checkpoints/model_20240718061605.pth
 checkpoints/model_20240718070309.pth
@@ -155,3 +163,5 @@ checkpoints/model_20240718083848.pth
 checkpoints/model_20240718092602.pth
 checkpoints/model_20240718101245.pth
 checkpoints/model_20240718105853.pth
+checkpoints/model_20240718085926.pth
+checkpoints/model_20240718090829.pth
